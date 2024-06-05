@@ -1,6 +1,8 @@
 class HashMap {
     constructor() {
-        this.arr = new Array(50).fill(null); //  property of the instance - create new array and filled with null's
+        this.arrSize = 50;
+        this.arr = new Array(this.arrSize).fill(null); //  property of the instance - create new array and filled with null's
+        this.loadFactor = 0.75;
     }
 
     check(value) {
@@ -61,9 +63,9 @@ class HashMap {
         this.arr.fill(null);
     }
 
-    // keys() {
+    keys() {
 
-    // }
+    }
 
     values() {
         let array = [];
@@ -74,9 +76,14 @@ class HashMap {
         return array;
     }
 
-    // entries() {
+    entries() {
+        let array = [];
+        for (let i = 0; i < this.arr.length; i++) {
+            if (this.arr[i] !== null) array.push([i, this.arr[i]]);
+        }
 
-    // }
+        return array;
+    }
 }
 
 
@@ -107,6 +114,8 @@ console.log(hashMap.arr);
 // hashMap.clear(); //should clear entire array
 
 console.log(hashMap.values());
+
+console.log(hashMap.entries());
 
 
 
