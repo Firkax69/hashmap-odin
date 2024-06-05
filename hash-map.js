@@ -65,9 +65,14 @@ class HashMap {
 
     // }
 
-    // values() {
+    values() {
+        let array = [];
+        for (let i = 0; i < this.arr.length; i++) {
+            if (this.arr[i] !== null) array.push(this.arr[i]);
+        }
 
-    // }
+        return array;
+    }
 
     // entries() {
 
@@ -83,6 +88,8 @@ const hashMap = new HashMap();
 
 hashMap.set('name', 'Ihor');
 hashMap.set('namei', 'Darran');
+hashMap.set('name1', 'Gary Wright');
+hashMap.set('name223', 'Gilbey');
 
 console.log(hashMap.arr); // should return current hashMap array
 
@@ -97,8 +104,10 @@ console.log(hashMap.length()); // Should return 2
 
 console.log(hashMap.arr);
 
-hashMap.clear(); //should clear entire array
+// hashMap.clear(); //should clear entire array
 
-console.log(hashMap.arr);
+console.log(hashMap.values());
+
+
 
 
