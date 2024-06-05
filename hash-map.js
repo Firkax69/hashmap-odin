@@ -48,13 +48,18 @@ class HashMap {
         return true;
     }
 
-    // length() {
+    length() {
+        let counter = 0;
+        for (let i = 0; i < this.arr.length; i++) {
+            if (this.arr[i] !== null) counter = counter + 1;
+        }
 
-    // }
+        return counter;
+    }
 
-    // clear() {
-
-    // }
+    clear() {
+        this.arr.fill(null);
+    }
 
     // keys() {
 
@@ -79,14 +84,21 @@ const hashMap = new HashMap();
 hashMap.set('name', 'Ihor');
 hashMap.set('namei', 'Darran');
 
-console.log(hashMap.get(40));
-console.log(hashMap.get(7));
-console.log(hashMap.has(22));
-console.log(hashMap.has(51));
+console.log(hashMap.arr); // should return current hashMap array
 
-
-console.log(hashMap.arr);
+console.log(hashMap.get(40)); // should return null
+console.log(hashMap.get(7)); // should return 'Ihor'
+console.log(hashMap.has(22)); // should return true
+console.log(hashMap.has(51)); // should return false
 
 hashMap.remove(22); // won't display in console log, but will remove value with key hashCode of 22. if it's exist
 
+console.log(hashMap.length()); // Should return 2 
+
 console.log(hashMap.arr);
+
+hashMap.clear(); //should clear entire array
+
+console.log(hashMap.arr);
+
+
