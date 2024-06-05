@@ -41,9 +41,12 @@ class HashMap {
         return true;
     }
         
-    // remove(key) {
+    remove(key) {
+        if (!this.arr[key]) return false;
 
-    // }
+        this.arr.splice(key, 1);
+        return true;
+    }
 
     // length() {
 
@@ -76,9 +79,14 @@ const hashMap = new HashMap();
 hashMap.set('name', 'Ihor');
 hashMap.set('namei', 'Darran');
 
-console.log(hashMap.get(99));
+console.log(hashMap.get(40));
 console.log(hashMap.get(7));
 console.log(hashMap.has(22));
 console.log(hashMap.has(51));
+
+
+console.log(hashMap.arr);
+
+hashMap.remove(22); // won't display in console log, but will remove value with key hashCode of 22. if it's exist
 
 console.log(hashMap.arr);
