@@ -1,6 +1,6 @@
 class HashMap {
     constructor() {
-        this.arr = new Array(50).fill(null);
+        this.arr = new Array(50).fill(null); //  property of the instance - create new array and filled with null's
     }
 
     hash(string) {
@@ -20,7 +20,44 @@ class HashMap {
         this.arr[hashCode] = value;
         console.log(`Hashcode: ${hashCode}; \n arr[hashcode]: ${this.arr[hashCode]}`);
     }
+
+    get(key) {
+
+    }
+    
+    has(key) {
+
+    }
+        
+    remove(key) {
+
+    }
+
+    length() {
+
+    }
+
+    clear() {
+
+    }
+
+    keys() {
+
+    }
+
+    values() {
+
+    }
+
+    entries() {
+        
+    }
 }
+
+
+
+// *** CHECKS ***
+
 
 const hashMap = new HashMap();
 hashMap.set('name', 'Ihor');
