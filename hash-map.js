@@ -26,7 +26,7 @@ class HashMap {
     set(key, value) {
         const hashCode = this.hash(key);
         this.arr[hashCode] = value;
-        console.log(`Hashcode: ${hashCode}; \n arr[hashcode]: ${this.arr[hashCode]}`);
+        console.log(`Hashcode: ${hashCode}; \n arr[hashCode]: ${this.arr[hashCode]}`);
     }
 
     get(key) {
@@ -63,8 +63,13 @@ class HashMap {
         this.arr.fill(null);
     }
 
-    keys() {
+    keys() { // will return only digits not the original key itself, need to implement correct module
+        let array = [];
+        for (let i = 0; i < this.arr.length; i++) {
+            if (this.arr[i] !== null) array.push(i);
+        }
 
+        return array;
     }
 
     values() {
