@@ -3,6 +3,12 @@ class HashMap {
         this.arr = new Array(50).fill(null); //  property of the instance - create new array and filled with null's
     }
 
+    check(value) {
+        if (value < 0 || value >= this.arr.length) {
+            throw new Error("Trying to access index out of bound");
+        }
+    }
+
     hash(string) {
         let hashCode = 0;
 
@@ -22,36 +28,42 @@ class HashMap {
     }
 
     get(key) {
+        this.check(key);
 
+        if (!this.arr[key]) return null;
+
+        return this.arr[key];
     }
     
     has(key) {
+        if (!this.arr[key]) return false;
 
+        return true;
     }
         
-    remove(key) {
+    // remove(key) {
 
-    }
+    // }
 
-    length() {
+    // length() {
 
-    }
+    // }
 
-    clear() {
+    // clear() {
 
-    }
+    // }
 
-    keys() {
+    // keys() {
 
-    }
+    // }
 
-    values() {
+    // values() {
 
-    }
+    // }
 
-    entries() {
-        
-    }
+    // entries() {
+
+    // }
 }
 
 
@@ -60,6 +72,13 @@ class HashMap {
 
 
 const hashMap = new HashMap();
+
 hashMap.set('name', 'Ihor');
 hashMap.set('namei', 'Darran');
+
+console.log(hashMap.get(99));
+console.log(hashMap.get(7));
+console.log(hashMap.has(22));
+console.log(hashMap.has(51));
+
 console.log(hashMap.arr);
