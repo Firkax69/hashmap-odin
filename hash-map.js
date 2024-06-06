@@ -1,6 +1,6 @@
 class HashMap {
     constructor() {
-        this.arrSize = 50;
+        this.arrSize = 5;
         this.arr = new Array(this.arrSize).fill(null); //  property of the instance - create new array and filled with null's
         this.loadFactor = 0.75;
         this.occupied = this.load(); // check the current status of occupied array elements
@@ -126,7 +126,7 @@ console.log(hashMap.arr); // should return current hashMap array
 // console.log(hashMap.has(22)); // should return true
 // console.log(hashMap.has(51)); // should return false
 
-hashMap.remove(22); // won't display in console log, but will remove value with key hashCode of 22. if it's exist
+hashMap.remove(0); // won't display in console log, but will remove value with key hashCode of 22. if it's exist
 
 console.log(hashMap.length()); // Should return 2 
 
@@ -138,6 +138,8 @@ console.log(hashMap.values());
 
 console.log(hashMap.entries());
 
+hashMap.set('aa', 'Oh my God it works!');
+//after last set() this shoudl recalculate loadFactor and twice and add new array 
 
-
+console.log(hashMap.arr); // check result
 
