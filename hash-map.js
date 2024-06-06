@@ -3,12 +3,25 @@ class HashMap {
         this.arrSize = 50;
         this.arr = new Array(this.arrSize).fill(null); //  property of the instance - create new array and filled with null's
         this.loadFactor = 0.75;
+        this.occupied = this.load(); // check the current status of occupied array elements
     }
 
     check(value) {
         if (value < 0 || value >= this.arr.length) {
             throw new Error("Trying to access index out of bound");
         }
+    }
+
+    load() {
+        const length = this.length(); // checks current length of ocucpied elements in arr
+        
+        if (length / this.arr.length >= this.loadFactor) {
+            this.arrSize = 2 * this.arrSize;
+            const oldArr = [...this.arr];
+            this.arr = oldArr.concat(new Array(this.arrSize).fill(null));
+        }
+
+        return length;
     }
 
     hash(string) {
@@ -26,7 +39,9 @@ class HashMap {
     set(key, value) {
         const hashCode = this.hash(key);
         this.arr[hashCode] = value;
+        
         console.log(`Hashcode: ${hashCode}; \n arr[hashCode]: ${this.arr[hashCode]}`);
+        this.load(); // check current occupied arrays elements
     }
 
     get(key) {
@@ -47,6 +62,7 @@ class HashMap {
         if (!this.arr[key]) return false;
 
         this.arr.splice(key, 1);
+        this.load();
         return true;
     }
 
@@ -105,10 +121,10 @@ hashMap.set('name223', 'Gilbey');
 
 console.log(hashMap.arr); // should return current hashMap array
 
-console.log(hashMap.get(40)); // should return null
-console.log(hashMap.get(7)); // should return 'Ihor'
-console.log(hashMap.has(22)); // should return true
-console.log(hashMap.has(51)); // should return false
+// console.log(hashMap.get(40)); // should return null
+// console.log(hashMap.get(7)); // should return 'Ihor'
+// console.log(hashMap.has(22)); // should return true
+// console.log(hashMap.has(51)); // should return false
 
 hashMap.remove(22); // won't display in console log, but will remove value with key hashCode of 22. if it's exist
 
